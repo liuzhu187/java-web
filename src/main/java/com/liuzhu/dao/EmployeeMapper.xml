@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liuzhu.dao.EmployeeMapper">
+    <select id="getEmps" resultType="employee">
+        select * from tbl_emp;
+    </select>
+    <delete id="deleteById">
+        delete from tbl_emp where emp_id=#{emp_id}
+    </delete>
+    <update id="updateById">
+        update ssm_crud.tbl_emp
+        set  emp_name=#{emp_name},email=#{email},gender=#{gender},d_id=#{d_id}
+        where emp_id=#{emp_id};
+    </update>
+    <select id="getEmpById" resultType="employee">
+        select * from tbl_emp where emp_id=#{emp_id}
+    </select>
+    <insert id="addEmp" parameterType="employee">
+        insert into tbl_emp (emp_name, gender, email, d_id)
+        values (#{emp_name},#{gender},#{email},#{d_id});
+    </insert>
+</mapper>
